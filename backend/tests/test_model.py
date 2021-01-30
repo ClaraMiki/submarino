@@ -49,3 +49,29 @@ def test_update_direction_method_without_parameter():
     with pytest.raises(ValueError):
         submarine = Submarine()
         submarine.update_direction(None)
+
+
+def test_update_direction_logic_east():
+    submarine = Submarine()
+    submarine.update_direction('R')
+    assert submarine.direction == 'LESTE'
+
+
+def test_update_direction_logic_west():
+    submarine = Submarine()
+    submarine.update_direction('L')
+    assert submarine.direction == 'OESTE'
+
+
+def test_update_direction_south():
+    submarine = Submarine()
+    submarine.update_direction('L')
+    submarine.update_direction('L')
+    assert submarine.direction == 'SUL'
+
+
+def test_update_direction_north():
+    submarine = Submarine()
+    submarine.update_direction('R')
+    submarine.update_direction('L')
+    assert submarine.direction == 'NORTE'
