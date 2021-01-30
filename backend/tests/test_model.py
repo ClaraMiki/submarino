@@ -75,3 +75,18 @@ def test_update_direction_north():
     submarine.update_direction('R')
     submarine.update_direction('L')
     assert submarine.direction == 'NORTE'
+
+
+def test_move_method():
+    submarine = Submarine()
+    submarine.move()
+    assert submarine.longitude == 1
+    submarine.update_direction('R')
+    submarine.move()
+    assert submarine.latitude == 1
+    submarine.update_direction('R')
+    submarine.move()
+    assert submarine.longitude == 0
+    submarine.update_direction('R')
+    submarine.move()
+    assert submarine.latitude == 0
