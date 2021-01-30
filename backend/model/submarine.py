@@ -19,6 +19,18 @@ class Submarine:
             self.direction = 'NORTE'
         else:
             raise ValueError('Invalid command.')
+    
+    def move(self) -> None:
+        if self.direction == 'NORTE':
+            self.longitude += 1
+        elif self.direction == 'LESTE':
+            self.latitude += 1
+        elif self.direction == 'SUL':
+            self.longitude -= 1
+        elif self.direction == 'OESTE':
+            self.latitude -= 1
+        else:
+            raise ValueError('Something it is wrong.')
 
     @property
     def heigth(self) -> int:
