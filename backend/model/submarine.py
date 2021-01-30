@@ -31,6 +31,14 @@ class Submarine:
             self.latitude -= 1
         else:
             raise ValueError('Something it is wrong.')
+    
+    def move_depth(self, command: str) -> None:
+        if command == 'U':
+            self.heigth += 1
+        elif command == 'D':
+            self.heigth -= 1
+        else:
+            raise ValueError('Something it is wrong.')
 
     @property
     def heigth(self) -> int:
