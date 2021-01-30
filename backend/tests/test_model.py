@@ -90,3 +90,17 @@ def test_move_method():
     submarine.update_direction('R')
     submarine.move()
     assert submarine.latitude == 0
+
+
+def test_move_up():
+    submarine = Submarine()
+    submarine.move_depth('U')
+    submarine.move_depth('U')
+    assert submarine.heigth == 2
+
+
+def test_move_down():
+    submarine = Submarine()
+    submarine.move_depth('D')
+    submarine.move_depth('D')
+    assert submarine.heigth == -2
