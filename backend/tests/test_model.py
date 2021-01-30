@@ -1,8 +1,8 @@
-import sys
-
-sys.path.append('.')
-from backend.model.submarine import Submarine
 import pytest
+import sys
+sys.path.append('.')
+
+from backend.model.submarine import Submarine
 
 def test_instance_submarine():
     submarine = Submarine()
@@ -24,3 +24,28 @@ def test_value_attr():
     assert submarine.latitude == 0
     assert submarine.heigth == 0
     assert submarine.direction == 'NORTE'
+
+
+# METHODS
+def test_update_direction_method_invalid_parameter():
+    with pytest.raises(ValueError):
+        submarine = Submarine()
+        submarine.update_direction('D')
+
+
+def test_update_direction_method_empty_string_parameter():
+    with pytest.raises(ValueError):
+        submarine = Submarine()
+        submarine.update_direction('')
+
+
+def test_update_direction_method_int_parameter():
+    with pytest.raises(ValueError):
+        submarine = Submarine()
+        submarine.update_direction(1)
+
+
+def test_update_direction_method_without_parameter():
+    with pytest.raises(ValueError):
+        submarine = Submarine()
+        submarine.update_direction(None)
